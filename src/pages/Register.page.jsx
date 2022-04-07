@@ -6,7 +6,7 @@ const RegisterPage = () => {
   const { control, handleSubmit } = useForm({
     defaultValues: {
       name: 'Alan',
-      email: 'allanpaiva17@teste.com',
+      email: 'teste@teste.com',
       password: '123',
     },
   });

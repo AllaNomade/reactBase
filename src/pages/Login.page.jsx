@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import { Controller, useForm } from 'react-hook-form';
 import DefaultInput from '../components/DefaultInput';
-import { Header } from '../components';
+import { Header, RandomDog } from '../components';
 
 const LoginPage = () => {
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      email: 'allanpaiva17@teste.com',
+      email: 'teste@teste.com',
       password: '123',
     },
   });
@@ -43,6 +43,7 @@ const LoginPage = () => {
         <button type="submit">Entrar</button>
       </form>
       <Link to="/register">Não possui uma conta? Cadastre-se</Link>
+      <RandomDog />
     </div>
   );
 };
