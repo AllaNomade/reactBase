@@ -1,9 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Controller, useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import DefaultInput from '../components/DefaultInput';
-import { Header, RandomDog } from '../components';
+import { Header } from '../components';
+import { userActions } from '../store/modules/user';
 
 const LoginPage = () => {
+  const disPatch = useDispatch();
+  const navigate = useNavigate();
+
   const { control, handleSubmit } = useForm({
     defaultValues: {
       email: 'teste@teste.com',
@@ -12,7 +17,10 @@ const LoginPage = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    const { email, password } = data;
+    disPatch(userActions.setUser('Alan', email, password));
+
+    navigate('/lobby');
   };
 
   return (
@@ -43,7 +51,6 @@ const LoginPage = () => {
         <button type="submit">Entrar</button>
       </form>
       <Link to="/register">Não possui uma conta? Cadastre-se</Link>
-      <RandomDog />
     </div>
   );
 };

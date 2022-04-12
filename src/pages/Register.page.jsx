@@ -12,8 +12,7 @@ const RegisterPage = () => {
   });
   const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = () => {
     navigate('/login');
   };
 
